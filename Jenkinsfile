@@ -5,7 +5,25 @@ pipeline {
         label "java-8"
     }
     stages  {
-
+        stage("Script") {
+            steps {
+                parallel "etc": {
+                  	script{
+                      	sh 'ls -l'
+                  	}
+                }, "当前目录": {
+                    sh 'pwd'
+                }
+            }
+          
+        }
+        stage("环境"){
+      		steps {
+            	sh 'whoami'
+                sh 'echo $HOME'
+                sh 'ls -la $HOME'
+    	    }
+    	}
         stage("构建") {
             steps {
                 echo "构建中..."
@@ -20,22 +38,6 @@ pipeline {
             	sh 'java -jar target/java-0.0.1-SNAPSHOT.jar'
     	    }
     	}
-      	stage("Script") {
-            steps {
-                parallel "etc": {
-                  	script{
-                      	sh 'ls -l'
-                  	}
-                }, "ip address": {
-                    sh 'pwd'
-                }
-            }
-          
-        }
-        stage("环境"){
-      		steps {
-            	sh 'whoami'
-    	    }
-    	}
+      	
     }
 }
