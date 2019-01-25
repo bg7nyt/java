@@ -27,10 +27,15 @@ pipeline {
                       	sh 'ls -l'
                   	}
                 }, "ip address": {
-                    sh 'ip addr show'
+                    sh 'pwd'
                 }
             }
           
         }
+        stage("环境"){
+      		steps {
+            	sh 'whoami'
+    	    }
+    	}
     }
 }
