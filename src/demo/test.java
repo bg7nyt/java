@@ -8,7 +8,7 @@ public class test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int number = 0
+		int number = 0;
 		for (int n1 = 1; n1 <= 5; n1++) {
 			for (int n2 = 1; n2 <= 5; n2++) {
 				for (int n3 = 1; n3 <= 5; n3++) {
